@@ -1,3 +1,0 @@
-# qqor.github.io
-
-Hi

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minwoo Baek</title>
+  <meta name="description" content="Personal site / resume" />
+  <style>
+    :root{
+      --bg: #0b0b0b;         /* near-black background */
+      --bg-soft: #111;       /* cards / code blocks */
+      --fg: #e9e9e9;         /* primary text */
+      --muted: #b6b6b6;      /* secondary text */
+      --link: #8ab4f8;       /* links */
+      --accent: #6ee7b7;     /* tag chips border */
+      --border: #222;        /* separators */
+      --maxw: 920px;         /* content width */
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#fff; --bg-soft:#f6f6f6; --fg:#111; --muted:#444; --link:#1d4ed8; --accent:#059669; --border:#e5e5e5;
+      }
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji';
+      color:var(--fg); background:var(--bg);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout */
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:32px 20px 80px}
+
+    header{margin-bottom:28px}
+    header h1{margin:0; font-size: clamp(28px, 4vw, 40px); letter-spacing:0.2px}
+    header .subtitle{color:var(--muted); margin-top:6px}
+
+    .grid{
+      display:grid; grid-template-columns: 260px 1fr; gap: 28px;
+    }
+    @media (max-width:900px){ .grid{grid-template-columns: 1fr} .toc{position:static} }
+
+    /* TOC / Sidebar */
+    .toc{position:sticky; top:24px; align-self:start; border:1px solid var(--border); border-radius:12px; padding:16px; background:transparent}
+    .toc h3{font-size:14px; margin:0 0 10px; color:var(--muted); letter-spacing:.3px; text-transform:uppercase}
+    .toc a{display:block; padding:6px 0; color:var(--fg)}
+    .toc a small{color:var(--muted)}
+
+    /* Sections */
+    section{padding:20px 0; border-top:1px solid var(--border)}
+    section:first-of-type{border-top:0}
+    h2{margin:0 0 14px; font-size: clamp(20px, 3vw, 26px)}
+
+    /* Entries */
+    .entry{margin:18px 0}
+    .entry-header{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap}
+    .role{font-weight:600}
+    .org{color:var(--muted)}
+    .dates{margin-left:auto; color:var(--muted); font-size:14px}
+
+    h3{margin:10px 0 10px; font-size:18px}
+    p{margin:8px 0 12px}
+
+    /* Skill tags */
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 6px}
+    .tag{border:1px solid var(--accent); border-radius:999px; padding:2px 10px; font-size:12px}
+
+    /* Footer */
+    footer{margin-top:40px; color:var(--muted); font-size:14px; border-top:1px solid var(--border); padding-top:18px}
+    .links{display:flex; gap:12px; flex-wrap:wrap}
+
+    /* Code look for summaries */
+    .note{background:var(--bg-soft); border:1px solid var(--border); padding:12px 14px; border-radius:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Minwoo Baek</h1>
+      <div class="subtitle">PhD Student @ KAIST Hacking Lab</div>
+    </header>
+
+    <div class="grid">
+      <!-- Left: Table of contents -->
+      <nav class="toc" aria-label="Sections">
+        <a href="#contact">Contact</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+      </nav>
+
+      <!-- Right: Main content -->
+      <main>
+                  <section id="contact">
+            <h2>Contact</h2>
+            <div class="links">
+              <a href="https://github.com/qqor" rel="me">@qqor</a>
+              <span>·</span>
+              <span>baekminwoo@gmail.com</span>
+              <span>·</span>
+              <span>qqqor@kaist.ac.kr</span>
+
+            </div>
+          </section>
+
+                  <section id="education">
+            <h2>Education</h2>
+            <article class="entry">
+              <div class="entry-header">
+                <div class="role">Ph.D. Electrical Engineering</div>
+                <div class="org">· KAIST</div>
+                <div class="dates">2024 – Present</div>
+              </div>
+            </article>
+            <article class="entry">
+              <div class="entry-header">
+                <div class="role">M.S. Graduate School of Information Security</div>
+                <div class="org">· KAIST</div>
+                <div class="dates">2022 – 2024</div>
+              </div>
+            </article>
+            <article class="entry">
+              <div class="entry-header">
+                <div class="role">B.S. Department of Cyber Defense</div>
+                <div class="org">· Korea University</div>
+                <div class="dates">2018 – 2022</div>
+              </div>
+            </article>
+          </section>
+
+          <section id="publications">
+            <h2>Publications</h2>
+            <article class="entry">
+              <div class="entry-header">
+                <div class="role">Co-First Author</div>
+                <div class="org">· Proceedings of the 32nd USENIX Security Symposium</div>
+                <div class="dates">2023</div>
+              </div>
+              <h3>BaseComp: A Comparative Analysis for Integrity Protection in Cellular Baseband Software</h3>
+              Eunsoo Kim*, <strong>Min Woo Baek*</strong>, CheolJun Park, Dongkwan Kim, Yongdae Kim, Insu Yun
+            </article>
+          </section>
+
+          <section id="awards">
+            <h2>Awards</h2>
+            <article class="entry">
+              <div class="entry-header">
+                <div class="role">Team Atlanta</div>
+                <div class="org">· AIxCC</div>
+                <div class="dates">Aug 2024</div>
+              </div>
+              <h3>Winner</h3>
+              <p class="note">Won DARPA AI Cyber Challenge (AIxCC) as part of Team Atlanta; contributed autonomous patch generation components.</p>
+            </article>
+          </section>
+
+        <footer>
+          <div>© <span id="year"></span> Minwoo Baek.</div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Update footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: highlight active section link while scrolling
+    const links = [...document.querySelectorAll('.toc a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const idx = sections.indexOf(entry.target);
+        if(idx === -1) return;
+        const link = links[idx];
+        if(entry.isIntersecting){
+          links.forEach(l=>l.style.opacity='1');
+          link.style.opacity = .6;
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px', threshold: [0,1]});
+
+    sections.forEach(s=> s && obs.observe(s));
+  </script>
+</body>
+</html>
