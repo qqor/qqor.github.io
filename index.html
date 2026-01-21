@@ -37,19 +37,6 @@
     header h1{margin:0; font-size: clamp(28px, 4vw, 40px); letter-spacing:0.2px}
     header .subtitle{color:var(--muted); margin-top:6px}
 
-    .grid{
-      display:grid; grid-template-columns: 260px 1fr; gap: 28px;
-    }
-    @media (max-width:900px){ 
-      .grid{grid-template-columns: 1fr; gap: 20px} 
-      .toc{position:static; margin-bottom:20px}
-    }
-
-    /* TOC / Sidebar */
-    .toc{position:static; align-self:start; border:1px solid var(--border); border-radius:12px; padding:16px; background:var(--bg)}
-    .toc h3{font-size:14px; margin:0 0 10px; color:var(--muted); letter-spacing:.3px; text-transform:uppercase}
-    .toc a{display:block; padding:6px 0; color:var(--fg)}
-    .toc a small{color:var(--muted)}
 
     /* Sections */
     section{padding:20px 0; border-top:1px solid var(--border)}
@@ -85,17 +72,6 @@
       <div class="subtitle">PhD Student @ KAIST Hacking Lab</div>
     </header>
 
-    <div class="grid">
-      <!-- Left: Table of contents -->
-      <nav class="toc" aria-label="Sections">
-        <a href="#contact">Contact</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#talks">Talks</a>
-        <a href="#awards">Awards</a>
-      </nav>
-
-      <!-- Right: Main content -->
       <main>
                   <section id="contact">
             <h2>Contact</h2>
@@ -182,30 +158,10 @@
           <div>© <span id="year"></span> Min Woo Baek.</div>
         </footer>
       </main>
-    </div>
   </div>
 
   <script>
-    // Update footer year automatically
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Optional: highlight active section link while scrolling
-    const links = [...document.querySelectorAll('.toc a')];
-    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        const idx = sections.indexOf(entry.target);
-        if(idx === -1) return;
-        const link = links[idx];
-        if(entry.isIntersecting){
-          links.forEach(l=>l.style.opacity='1');
-          link.style.opacity = .6;
-        }
-      });
-    },{rootMargin:'-40% 0px -55% 0px', threshold: [0,1]});
-
-    sections.forEach(s=> s && obs.observe(s));
   </script>
 </body>
 </html>
